@@ -1,0 +1,4 @@
+# file: /home/harry/workspace/mlops-platform/shared/logging.py
+# hypothesis_version: 6.148.7
+
+['%Y-%m-%d %H:%M:%S', 'INFO']

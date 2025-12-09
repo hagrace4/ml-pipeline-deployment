@@ -1,0 +1,4 @@
+# file: /home/harry/workspace/mlops-platform/shared/models.py
+# hypothesis_version: 6.148.7
+
+[0.0, 0.001, 0.2, 100, 'bool', 'category', 'csv', 'datetime64', 'degraded', 'dtype', 'features', 'float32', 'float64', 'healthy', 'instances', 'int16', 'int32', 'int64', 'int8', 'json', 'local', 'object', 'parquet', 'pytorch', 's3', 'string', 'timedelta64', 'uint16', 'uint32', 'uint64', 'uint8', 'unhealthy', 'unknown', 'url', 'xgboost']

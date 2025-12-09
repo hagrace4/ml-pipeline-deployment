@@ -1,0 +1,4 @@
+# file: /home/harry/workspace/mlops-platform/shared/config.py
+# hypothesis_version: 6.148.7
+
+[0.001, 0.2, 100, 8000, 9090, 65535, '.', '.json', '.yaml', '.yml', '0.0.0.0', 'DATA_SOURCE_', 'DEBUG', 'ERROR', 'INFERENCE_', 'INFO', 'ML_PIPELINE_', 'MODEL_', 'REGISTRY_', 'WARNING', '__', 'after', 'before', 'config_file', 'csv', 'development', 'ignore', 'json', 'local', 'ml-model', 'ml-pipeline', 'parquet', 'production', 'pytorch', 's3', 'staging', 'url', 'us-east-1', 'xgboost']

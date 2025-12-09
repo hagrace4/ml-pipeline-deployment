@@ -1,0 +1,46 @@
+# ML Pipeline Deployment System - Default Configuration
+# Override with environment variables prefixed with ML_PIPELINE_
+
+environment: development
+debug: false
+log_level: INFO
+
+# GPU settings
+gpu_enabled: true
+# cuda_visible_devices: "0"  # Uncomment to specify GPU
+
+# Prometheus metrics
+metrics_enabled: true
+metrics_port: 9090
+
+# Data source configuration
+data_source:
+  source_type: local
+  source_path: /data/training
+  format: csv
+
+# Model configuration
+model:
+  model_type: xgboost
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  early_stopping_patience: 10
+  validation_split: 0.2
+  hyperparameters:
+    max_depth: 6
+    n_estimators: 100
+
+# Model registry configuration
+registry:
+  mlflow_tracking_uri: http://localhost:5000
+  mlflow_experiment_name: ml-pipeline
+  sagemaker_enabled: false
+
+# Inference endpoint configuration
+inference:
+  model_name: ml-model
+  host: 0.0.0.0
+  port: 8000
+  request_timeout: 30
+  gpu_enabled: false

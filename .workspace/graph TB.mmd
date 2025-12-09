@@ -1,0 +1,56 @@
+graph TB
+    subgraph "GitHub"
+        GH[GitHub Repository]
+        GA[GitHub Actions]
+    end
+    
+    subgraph "Homelab Kubernetes Cluster"
+        subgraph "Data Pipeline"
+            DI[Data Ingestion Service]
+            DS[Data Storage PVC]
+        end
+        
+        subgraph "Training Pipeline"
+            TS[Training Service]
+            GPU[GPU Node Pool<br/>GTX 4070 / RTX 3060]
+        end
+        
+        subgraph "Model Management"
+            MLF[MLflow Server]
+            MR[Model Registry Storage]
+        end
+        
+        subgraph "Inference"
+            IE[Inference Endpoint]
+            SVC[K8s Service]
+        end
+        
+        subgraph "Monitoring"
+            PROM[Prometheus]
+            GRAF[Grafana]
+        end
+    end
+    
+    subgraph "Optional AWS"
+        SM[SageMaker Model Registry]
+    end
+    
+    GH -->|Push/PR| GA
+    GA -->|Deploy| DI
+    GA -->|Deploy| TS
+    GA -->|Deploy| IE
+    
+    DI -->|Store Data| DS
+    DS -->|Read Data| TS
+    TS -->|Use GPU| GPU
+    TS -->|Register Model| MLF
+    MLF -->|Store Artifacts| MR
+    MLF -.->|Optional| SM
+    
+    MR -->|Load Model| IE
+    SVC -->|Route Traffic| IE
+    
+    TS -->|Metrics| PROM
+    IE -->|Metrics| PROM
+    DI -->|Metrics| PROM
+    PROM -->|Visualize| GRAF
