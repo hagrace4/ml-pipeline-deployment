@@ -17,6 +17,8 @@ build/
 .idea/
 .vscode/
 *.swp
+.progress-q/
+progress/
 
 # Environment
 .env
